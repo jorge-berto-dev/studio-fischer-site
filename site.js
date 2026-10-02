@@ -3,12 +3,28 @@
   var hamb = document.getElementById('hamb');
   var menu = document.getElementById('menuMob');
   if (hamb && menu) {
-    hamb.addEventListener('click', function () {
+    var fechar = function () {
+      menu.classList.remove('aberto');
+      hamb.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-aberto');
+    };
+    hamb.addEventListener('click', function (e) {
+      e.stopPropagation();
       var aberto = menu.classList.toggle('aberto');
       hamb.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+      document.body.classList.toggle('menu-aberto', aberto);
     });
     menu.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () { menu.classList.remove('aberto'); });
+      a.addEventListener('click', fechar);
+    });
+    document.addEventListener('click', function (e) {
+      if (menu.classList.contains('aberto') && !menu.contains(e.target)) fechar();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') fechar();
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 760) fechar();
     });
   }
 

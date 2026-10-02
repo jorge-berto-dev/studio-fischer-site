@@ -16,16 +16,19 @@
   --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 86px; }
 body {
   font-family: var(--sans);
   color: var(--texto);
   background: var(--papel);
   line-height: 1.65;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(198, 154, 63, 0.2);
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
+section, footer { scroll-margin-top: 86px; }
 .wrap { width: min(1140px, 100% - 44px); margin: 0 auto; }
 .font-display { font-family: var(--serif); }
 .centro { text-align: center; margin-top: 30px; }
@@ -68,10 +71,15 @@ a { color: inherit; }
 .menu a:hover { color: var(--ouro-claro); }
 .topo-cta { margin-left: auto; display: flex; align-items: center; gap: 10px; }
 .hamb { display: none; background: none; border: 1px solid rgba(255,255,255,.25); border-radius: 10px; padding: 9px 10px; cursor: pointer; }
-.hamb span { display: block; width: 20px; height: 2px; background: #fff; margin: 4px 0; border-radius: 2px; }
-.menu-mob { display: none; flex-direction: column; gap: 4px; padding: 6px 22px 18px; }
-.menu-mob a:not(.btn) { color: #e9e4d6; text-decoration: none; font-weight: 600; padding: 11px 2px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 15px; }
+.hamb span { display: block; width: 20px; height: 2px; background: #fff; margin: 4px 0; border-radius: 2px; transition: transform 0.2s ease, opacity 0.2s ease; }
+.hamb[aria-expanded='true'] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamb[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
+.hamb[aria-expanded='true'] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.menu-mob { display: none; flex-direction: column; gap: 4px; padding: 6px 16px 18px; max-height: calc(100dvh - 64px); overflow-y: auto; }
+.menu-mob a:not(.btn) { color: #e9e4d6; text-decoration: none; font-weight: 600; padding: 13px 2px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 15px; }
+.menu-mob .btn { margin-top: 12px; }
 .menu-mob.aberto { display: flex; }
+body.menu-aberto { overflow: hidden; }
 
 /* ---------- hero ---------- */
 .hero {
@@ -159,6 +167,18 @@ a { color: inherit; }
 }
 .dif b { font-size: 17px; display: block; margin-bottom: 4px; }
 .dif p { font-size: 14.5px; color: var(--cinza); }
+
+/* ---------- números ---------- */
+.numeros { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.numeros li {
+  background: #fff; border: 1px solid var(--linha); border-radius: var(--raio);
+  padding: 20px 16px; text-align: center; box-shadow: var(--sombra);
+}
+.numeros b {
+  display: block; font-family: var(--serif); font-size: 34px;
+  color: var(--ouro-escuro); line-height: 1.1;
+}
+.numeros span { display: block; font-size: 12.5px; color: var(--cinza); margin-top: 4px; line-height: 1.35; }
 
 /* ---------- serviços ---------- */
 .grade-servicos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
@@ -304,29 +324,80 @@ footer { background: var(--preto); color: #c9c4b8; padding: 46px 0 110px; }
 .cta-fixa .wa { border: 1px solid rgba(255,255,255,.3); color: #fff; }
 
 /* ---------- responsivo ---------- */
-@media (max-width: 960px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  .hero-card { max-width: 560px; margin: 0 auto; width: 100%; }
-  .grade-servicos { grid-template-columns: repeat(2, 1fr); }
-  .passos { grid-template-columns: 1fr; }
-  .grade-depo { grid-template-columns: 1fr; }
-  .sobre-grid-difs, .visita-grid, .app-grid { grid-template-columns: 1fr; }
-}
 .sobre-grid-difs { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; margin-top: 26px; align-items: start; }
 .sobre-grid-difs > div > p + p { margin-top: 14px; }
+
+@media (max-width: 1024px) {
+  .grade-servicos { grid-template-columns: repeat(2, 1fr); }
+  .hero-grid { gap: 40px; }
+}
+
+@media (max-width: 960px) {
+  .hero-grid, .sobre-grid-difs, .visita-grid, .app-grid, .difs,
+  .grade-depo, .passos { grid-template-columns: 1fr; }
+  .hero-card { max-width: 560px; margin: 0 auto; width: 100%; }
+  .dif { padding: 20px 0; border-right: 0 !important; }
+  .dif:nth-child(even) { padding-left: 0; }
+  .mapa iframe { height: 300px; }
+  .app-mock { max-width: 300px; }
+}
+
 @media (max-width: 760px) {
   .menu, .topo-cta .btn { display: none; }
   .hamb { display: block; }
-  .secao { padding: 58px 0; }
-  .hero { padding: 60px 0 58px; }
+  .wrap { width: calc(100% - 32px); }
+  .secao { padding: 52px 0; }
+  .hero { padding: 56px 0 54px; }
+  .hero-grid { gap: 32px; }
+  .kicker { font-size: 11px; letter-spacing: 0.16em; margin-bottom: 14px; }
+  .hero-prova { flex-wrap: wrap; }
   .cta-fixa { display: flex; }
+  .zap { bottom: 84px; right: 14px; width: 52px; height: 52px; }
   footer { padding-bottom: 150px; }
-  body { padding-bottom: 0; }
+  .contato-botoes .btn { flex: 1 1 100%; }
+  .horarios { font-size: 14px; }
+  .horarios td { padding: 9px 12px; }
+  .numeros { gap: 10px; }
+  .numeros li { padding: 14px 8px; }
+  .numeros b { font-size: 28px; }
+  .numeros span { font-size: 11.5px; }
+  .topo-in { gap: 14px; }
+  .marca img { height: 42px; }
+  .depo blockquote { font-size: 19px; }
+  .depo { padding: 24px 20px; }
+  .depo::before { font-size: 52px; top: 10px; right: 16px; }
+  .svc { padding: 22px 20px; }
+  .passos li, .svc { padding: 22px 20px; }
+  .faq summary { font-size: 16px; padding: 18px 2px; }
+  .faq .resp { font-size: 15px; }
+  .btn { min-height: 46px; }
+  .btn-lg { padding: 15px 26px; font-size: 15.5px; }
+  .btn-sm { padding: 11px 20px; }
 }
+
 @media (min-width: 761px) {
   .menu-mob { display: none !important; }
 }
+
 @media (max-width: 560px) {
   .grade-servicos { grid-template-columns: 1fr; }
-  .hero-botoes .btn { width: 100%; }
+  .hero-botoes .btn, .sobre-cta .btn { flex: 1 1 100%; }
+  .hero h1 { font-size: 34px; }
+  .hero-sub { font-size: 16px; }
+  .secao h2 { font-size: 28px; }
+  .hero-card { padding: 24px 20px; }
+  .hero-prova .nota { font-size: 26px; }
+  .svc .links a { padding: 12px 6px; }
+  .dif { gap: 14px; }
+  .dif-n { width: 40px; height: 40px; font-size: 22px; }
+  .dif b { font-size: 16px; }
+  .app-mock { padding: 26px 20px; border-radius: 24px; }
+  .rodape-in { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .rodape-links { margin-left: 0; }
+  .cta-fixa a { font-size: 14px; padding: 14px 4px; }
+}
+
+/* toque */
+@media (hover: none) {
+  .svc:hover, .zap:hover { transform: none; }
 }
