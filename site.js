@@ -88,14 +88,10 @@
 
   if (btn) {
     if (ehIOS) {
-      // iPhone não instala .apk: leva para as instruções do Safari
+      // iPhone não instala .apk: manda para a página de instalação
       btn.textContent = 'Tenho iPhone — ver como instalar';
-      btn.setAttribute('href', '#como-instalar-ios');
+      btn.setAttribute('href', 'instalar-iphone.html');
       btn.removeAttribute('download');
-      btn.addEventListener('click', function () {
-        var alvo = document.getElementById('como-instalar-ios');
-        if (alvo) alvo.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      });
     } else {
       // Android e computador: baixa o arquivo direto
       btn.addEventListener('click', function () {

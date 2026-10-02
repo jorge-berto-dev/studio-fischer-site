@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Instalar o app do aluno no iPhone | Studio Fischer</title>
+  <meta name="description" content="Passo a passo em 3 toques para instalar o aplicativo do aluno do Studio Fischer no iPhone." />
+  <meta name="theme-color" content="#0A0A0A" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230A0A0A'/><text x='50' y='68' font-size='46' text-anchor='middle' fill='%23C69A3F' font-family='Georgia,serif' font-weight='bold'>SF</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Página única de instalação: letra grande e alvos de toque grandes. */
+    body.guia { background: var(--preto); color: #f3efe4; }
+    .guia-topo { text-align: center; padding: 34px 0 6px; }
+    .guia-topo img { height: 84px; width: auto; margin: 0 auto; border-radius: 18px; box-shadow: 0 0 0 1px rgba(198,154,63,.35); }
+    .guia h1 { font-family: var(--serif); font-size: clamp(30px, 8vw, 42px); line-height: 1.14; margin-top: 20px; }
+    .guia h1 em { color: var(--ouro-claro); font-style: italic; }
+    .guia-sub { font-size: 18px; color: #cfc9bb; margin-top: 10px; }
+    .guia-wrap { width: min(560px, 100% - 28px); margin: 0 auto; }
+    .passo-grande {
+      display: flex; gap: 16px; align-items: flex-start; text-align: left;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(198,154,63,.3);
+      border-radius: 20px; padding: 22px 20px; margin-top: 16px;
+    }
+    .passo-grande .n {
+      flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 26px; color: #0a0a0a;
+      background: linear-gradient(135deg, #dcb95c, #a67e2f);
+    }
+    .passo-grande b { display: block; font-size: 19px; color: #f5efdf; margin-bottom: 5px; }
+    .passo-grande p { font-size: 16.5px; color: #b9b4a8; line-height: 1.55; }
+    .destaque {
+      margin-top: 26px; padding: 18px 20px; border-radius: 16px; font-size: 16.5px; line-height: 1.6;
+      background: rgba(198,154,63,.12); border: 1px solid rgba(198,154,63,.35); color: #e4dfd2;
+    }
+    .destaque b { color: var(--ouro-claro); }
+    .guia-cta { display: grid; gap: 12px; margin-top: 28px; }
+    .guia-rodape { text-align: center; padding: 40px 0 60px; font-size: 13.5px; color: #8f8a80; }
+    .guia-rodape a { color: var(--ouro-claro); }
+  </style>
+</head>
+<body class="guia">
+  <main class="guia-wrap">
+    <div class="guia-topo">
+      <img src="logo.jpeg" alt="Studio Fischer" />
+      <h1>Instalar o app do aluno no <em>iPhone</em></h1>
+      <p class="guia-sub">3 toques e pronto. Não precisa digitar nada.</p>
+    </div>
+
+    <ol style="list-style:none;padding:0;margin:26px 0 0">
+      <li class="passo-grande">
+        <span class="n">1</span>
+        <div>
+          <b>Abra esta página no Safari</b>
+          <p>Se estiver no Chrome ou no WhatsApp, toque em <b>Compartilhar</b> e depois em <b>Safari</b> para abrir aqui.</p>
+        </div>
+      </li>
+      <li class="passo-grande">
+        <span class="n">2</span>
+        <div>
+          <b>Toque no botão Compartilhar</b>
+          <p>É o quadrado azul com uma seta para cima, no meio da tela de baixo.</p>
+        </div>
+      </li>
+      <li class="passo-grande">
+        <span class="n">3</span>
+        <div>
+          <b>Role e toque em “Adicionar à Tela de Início”</b>
+          <p>Depois toque em <b>Adicionar</b>, no canto de cima. O ícone do Studio Fischer aparece junto dos seus aplicativos.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="destaque">
+      <b>Não achou o botão?</b> Continue rolando a lista do menu de compartilhamento até o fim — o botão
+      <b>“Adicionar à Tela de Início”</b> fica entre “Denunciar” e “Formatar”.
+    </div>
+
+    <div class="guia-cta">
+      <a class="btn btn-ouro btn-lg" href="https://studio-fischer.vercel.app/portal/login?k=sf-297d293f9896e786">Abrir a área do aluno</a>
+      <a class="btn btn-linha btn-lg" href="studio-fischer-app.apk" download="studio-fischer-app.apk">Tenho Android — baixar o app</a>
+    </div>
+
+    <div class="guia-rodape">
+      <p>Dúvidas? Chame a recepção no WhatsApp.<br />
+      <a href="https://wa.me/5511917540937?text=Ol%C3%A1!%20N%C3%A3o%20consegui%20instalar%20o%20app%20no%20iPhone." target="_blank" rel="noopener">(11) 91754-0937</a></p>
+      <p style="margin-top:16px"><a href="index.html">← Voltar ao site</a></p>
+    </div>
+  </main>
+</body>
+</html>
