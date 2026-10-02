@@ -92,11 +92,10 @@
       btn.textContent = 'Tenho iPhone — ver como instalar';
       btn.setAttribute('href', 'instalar-iphone.html');
       btn.removeAttribute('download');
+      // destaca o texto do iPhone e esconde o do Android
+      document.body.classList.add('ver-so-ios');
     } else {
-      // Android e computador: baixa o arquivo direto
-      btn.addEventListener('click', function () {
-        if (!ehIOS) btn.setAttribute('download', 'studio-fischer-app.apk');
-      });
+      document.body.classList.add('ver-so-android');
     }
   }
 })();

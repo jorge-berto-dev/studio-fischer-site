@@ -302,6 +302,16 @@ body.menu-aberto { overflow: hidden; }
 .app-garantia p:first-child { font-size: 16px; color: #f0eadb; }
 .app-garantia b { color: var(--ouro-claro); }
 .app-garantia-linha { font-size: 13px !important; color: #a9a49a !important; border-top: 1px solid rgba(217, 119, 6, 0.28); padding-top: 12px; }
+.sub-b { color: var(--ouro-claro); }
+.app-quem-pode {
+  margin-top: 16px; font-size: 14.5px; line-height: 1.7; color: #b9b4a8;
+  padding: 16px 18px; border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(198, 154, 63, 0.22);
+}
+.app-quem-pode b { color: var(--ouro-claro); }
+.app-quem-pode a { color: var(--ouro-claro); font-weight: 700; text-underline-offset: 3px; }
+/* no celular, mostra só a instrução que serve para ele */
+body.ver-so-ios .pode-android, body.ver-so-android .pode-ios { display: none; }
 .inst-apk {
   margin-top: 18px; font-size: 13.5px; color: #8f8a80; line-height: 1.6;
   padding: 16px 18px; border-radius: 14px; background: rgba(255, 255, 255, 0.03);
