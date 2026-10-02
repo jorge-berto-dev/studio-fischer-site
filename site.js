@@ -15,16 +15,17 @@
   var WA = 'https://wa.me/5511917540937?text=';
   var AGENDAR = 'https://studio-fischer.vercel.app/agendar';
 
+  var S = function (inner) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + inner + '</svg>'; };
   var servicos = [
-    { ico: '\uD83E\uDDB5', nome: 'Fisioterapia', txt: 'Avaliação e tratamento individual para dores, lesões e recuperação de movimentos.' },
-    { ico: '\uD83E\uDDD8', nome: 'Pilates', txt: 'Solo e equipamentos, turmas pequenas com acompanhamento de perto. Inclusive para gestantes.' },
-    { ico: '\uD83E\uDDD8', nome: 'Pilates funcional', txt: 'Força, mobilidade e equilíbrio com exercícios funcionais no método Pilates.' },
-    { ico: '🧘', nome: 'Yoga', txt: 'Respiração, flexibilidade e bem-estar em aulas em grupo.' },
-    { ico: '\uD83E\uDDB7', nome: 'Quiropraxia', txt: 'Ajustes para coluna, postura e alívio de dores.' },
-    { ico: '\uD83D\uDC42', nome: 'Auriculoterapia', txt: 'Estímulo de pontos da orelha para equilíbrio do corpo.' },
-    { ico: '\uD83D\uDCCC', nome: 'Acupuntura', txt: 'Técnica da medicina tradicional chinesa para dor e bem-estar.' },
-    { ico: '\u2728', nome: 'Estética e beleza', txt: 'Limpeza de pele e cuidados estéticos.' },
-    { ico: '\uD83D\uDC86', nome: 'Massoterapia', txt: 'Massagem terapêutica e relaxante.' },
+    { svg: S('<path d="M3 12h4l2.5-7 4 14 2.5-7H21"/>'), nome: 'Fisioterapia', txt: 'Avaliação e tratamento individual para dores, lesões e recuperação de movimentos.' },
+    { svg: S('<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/>'), nome: 'Pilates', txt: 'Solo e equipamentos, turmas pequenas com acompanhamento de perto. Inclusive para gestantes.' },
+    { svg: S('<path d="M6.5 6.5v11M17.5 6.5v11M4 9.5v5M20 9.5v5M6.5 12h11"/>'), nome: 'Pilates funcional', txt: 'Força, mobilidade e equilíbrio com exercícios funcionais no método Pilates.' },
+    { svg: S('<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/>'), nome: 'Yoga', txt: 'Respiração, flexibilidade e bem-estar em aulas em grupo.' },
+    { svg: S('<path d="M12 3v18M8 7.5h8M8 12h8M8 16.5h8"/>'), nome: 'Quiropraxia', txt: 'Ajustes para coluna, postura e alívio de dores.' },
+    { svg: S('<path d="M8 3C5 4.5 4 8 5.5 11c1 2 1 3.5.5 5-.4 1.2-.3 2.6.8 3.4 1.2.9 3.2.7 4.4-.3"/><path d="M9.5 8.5c.5 2 1.5 3 1 5"/>'), nome: 'Auriculoterapia', txt: 'Estímulo de pontos da orelha para equilíbrio do corpo.' },
+    { svg: S('<path d="M4 20L16 8"/><circle cx="18" cy="6" r="2"/><path d="M9.5 14.5l1.5 1.5M12.5 11.5L14 13"/>'), nome: 'Acupuntura', txt: 'Técnica da medicina tradicional chinesa para dor e bem-estar.' },
+    { svg: S('<path d="M12 3c.7 4.5 2.5 6.3 7 7-4.5.7-6.3 2.5-7 7-.7-4.5-2.5-6.3-7-7 4.5-.7 6.3-2.5 7-7z"/>'), nome: 'Estética e beleza', txt: 'Limpeza de pele e cuidados estéticos.' },
+    { svg: S('<path d="M3 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>'), nome: 'Massoterapia', txt: 'Massagem terapêutica e relaxante.' },
   ];
 
   var grade = document.getElementById('gradeServicos');
@@ -33,7 +34,7 @@
       var msg = encodeURIComponent('Olá! Vim pelo site e quero informações sobre ' + s.nome + '.');
       return (
         '<article class="svc">' +
-        '<span class="ico" aria-hidden="true">' + s.ico + '</span>' +
+        '<span class="ico" aria-hidden="true">' + s.svg + '</span>' +
         '<h3>' + s.nome + '</h3>' +
         '<p>' + s.txt + '</p>' +
         '<div class="links">' +
