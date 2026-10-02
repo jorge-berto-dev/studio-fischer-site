@@ -222,6 +222,28 @@ a { color: inherit; }
 .depo blockquote { font-family: var(--serif); font-size: 21px; line-height: 1.5; color: #f0eadb; }
 .depo cite { font-style: normal; font-size: 12.5px; color: #8f8a80; letter-spacing: 0.04em; text-transform: uppercase; }
 
+/* ---------- app ---------- */
+.app-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 44px; align-items: center; }
+.app-passos { list-style: none; margin-top: 26px; }
+.app-passos li { display: flex; gap: 16px; padding: 15px 0; border-top: 1px solid rgba(255,255,255,.1); }
+.app-passos li:first-child { border-top: 0; }
+.app-passos b { font-size: 16.5px; color: #f3efe4; }
+.app-passos p { font-size: 14px; color: #a9a49a; margin-top: 2px; }
+.app-mock {
+  background: linear-gradient(160deg, #1a181c, #0a0a0a);
+  border: 1px solid rgba(198, 154, 63, 0.35); border-radius: 30px;
+  padding: 34px 26px; box-shadow: 0 30px 70px rgba(0,0,0,.5);
+  max-width: 340px; margin: 0 auto; width: 100%;
+}
+.app-tela { text-align: center; }
+.app-tela img { border-radius: 16px; margin: 0 auto; max-height: 110px; width: auto; }
+.app-nome { font-family: var(--serif); font-size: 26px; color: var(--ouro-claro); margin-top: 16px; }
+.app-sub { font-size: 13px; color: #a9a49a; margin-top: 2px; }
+.app-botao {
+  display: inline-block; margin-top: 18px; padding: 13px 44px; border-radius: 999px;
+  background: linear-gradient(135deg, #dcb95c, #a67e2f); color: #0a0a0a; font-weight: 800; font-size: 15px;
+}
+
 /* ---------- faq ---------- */
 .faq { margin-top: 30px; border-top: 1px solid var(--linha); }
 .faq details { border-bottom: 1px solid var(--linha); }
@@ -288,7 +310,7 @@ footer { background: var(--preto); color: #c9c4b8; padding: 46px 0 110px; }
   .grade-servicos { grid-template-columns: repeat(2, 1fr); }
   .passos { grid-template-columns: 1fr; }
   .grade-depo { grid-template-columns: 1fr; }
-  .sobre-grid-difs, .visita-grid { grid-template-columns: 1fr; }
+  .sobre-grid-difs, .visita-grid, .app-grid { grid-template-columns: 1fr; }
 }
 .sobre-grid-difs { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; margin-top: 26px; align-items: start; }
 .sobre-grid-difs > div > p + p { margin-top: 14px; }
