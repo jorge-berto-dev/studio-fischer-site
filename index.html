@@ -189,16 +189,17 @@
         <div>
           <p class="kicker">Aplicativo do aluno</p>
           <h2 class="font-display">Leve o Studio <em>no bolso</em></h2>
-          <p class="secao-sub">Agende sessões, acompanhe pacotes e veja confirmações — sem ocupar espaço e sem Play Store.</p>
+          <p class="secao-sub">Acompanhe pacotes, sessões e confirmações direto na tela inicial do celular. Sem aviso de segurança, sem loja de aplicativos e com atualizações automáticas.</p>
           <ol class="app-passos">
-            <li><span class="dif-n">1</span><div><b>Toque em “Baixar para Android”</b><p>O arquivo do app baixa na hora, direto do nosso site.</p></div></li>
-            <li><span class="dif-n">2</span><div><b>Abra o arquivo e toque em “Instalar”</b><p>O Android pede para liberar “apps desconhecidos” uma única vez — é o procedimento padrão fora da Play Store.</p></div></li>
-            <li><span class="dif-n">3</span><div><b>Pronto: ícone na tela inicial</b><p>Abre em tela cheia. No iPhone: use o botão abaixo e siga “Compartilhar → Adicionar à Tela de Início”.</p></div></li>
+            <li><span class="dif-n">1</span><div><b>Abra o app no navegador</b><p>Use o botão abaixo. No Android ele abre o <b>Chrome</b>; no iPhone, o <b>Safari</b>.</p></div></li>
+            <li><span class="dif-n">2</span><div><b>Toque em “Instalar”</b><p>No Android aparece um diálogo oficial do próprio Google. No iPhone: <b>Compartilhar → Adicionar à Tela de Início</b>.</p></div></li>
+            <li><span class="dif-n">3</span><div><b>Pronto: ícone na tela inicial</b><p>Abre em tela cheia, como um aplicativo comum — e já vem com as atualizações.</p></div></li>
           </ol>
           <div class="sobre-cta">
-            <a class="btn btn-ouro btn-lg" href="studio-fischer-app.apk" download="studio-fischer-app.apk">Baixar app Android</a>
-            <a class="btn btn-ghost btn-lg" href="https://wa.me/5511917540937?text=Ol%C3%A1!%20Uso%20iPhone%20e%20quero%20o%20link%20do%20aplicativo%20do%20aluno." target="_blank" rel="noopener">Uso iPhone — pedir acesso</a>
+            <button class="btn btn-ouro btn-lg" id="btnInstalar" type="button">Instalar aplicativo</button>
+            <a class="btn btn-ghost btn-lg" id="btnInstrucao" href="#como-instalar" hidden>Como instalar no meu celular</a>
           </div>
+          <p class="app-nota"><b>Por que não pedimos loja de aplicativos?</b> Um app de clínica não se registra na Play Store: custa taxa, exige revisão e leva semanas. Instalando direto do nosso site, você tem o mesmo app hoje, sem burocracia — e ele nunca pede acesso aos seus dados, fotos ou contatos.</p>
         </div>
         <div class="app-mock" aria-hidden="true">
           <div class="app-tela">
@@ -208,6 +209,35 @@
             <span class="app-botao">Instalar</span>
           </div>
         </div>
+      </div>
+
+      <!-- instruções por sistema -->
+      <div class="wrap" id="como-instalar">
+        <div class="inst-grid">
+          <div class="inst">
+            <h3><span class="inst-ico" aria-hidden="true">A</span> No Android (Chrome)</h3>
+            <ol>
+              <li>Toque em <b>Instalar aplicativo</b> acima e aceite o diálogo do Google.</li>
+              <li>Se o botão não abrir nada, toque no menu <b>⋮</b> do Chrome e escolha <b>Instalar aplicativo</b> ou <b>Adicionar à tela inicial</b>.</li>
+              <li>Confirme em <b>Instalar</b>. O ícone do Studio Fischer aparece junto dos seus apps.</li>
+            </ol>
+          </div>
+          <div class="inst">
+            <h3><span class="inst-ico" aria-hidden="true">iOS</span> No iPhone (Safari)</h3>
+            <ol>
+              <li>Abra este site no <b>Safari</b> (o Chrome do iPhone não instala).</li>
+              <li>Toque no botão <b>Compartilhar</b> — o quadrado com a seta para cima.</li>
+              <li>Role e toque em <b>Adicionar à Tela de Início</b>, depois <b>Adicionar</b>.</li>
+            </ol>
+          </div>
+        </div>
+        <p class="inst-apk">
+          Prefere o arquivo <b>.apk</b> tradicional? Também disponibilizamos:
+          <a href="studio-fischer-app.apk" download="studio-fischer-app.apk">baixar o APK</a>.
+          Nesse caso o Android pode mostrar um aviso de “app desconhecido” — é o aviso padrão de qualquer
+          instalação fora da loja, e acontece porque o app não está na Play Store. Ele não acessa seus arquivos,
+          fotos, contatos nem localização.
+        </p>
       </div>
     </section>
 
