@@ -1,11 +1,4 @@
 // Menu móvel + cards de serviços e depoimentos (dados públicos verificados).
-
-// O evento precisa ser capturado cedo, antes do clique do usuário.
-var deferredInstall = null;
-window.addEventListener('beforeinstallprompt', function (e) {
-  e.preventDefault();
-  deferredInstall = e;
-});
 (function () {
   var hamb = document.getElementById('hamb');
   var menu = document.getElementById('menuMob');
@@ -89,49 +82,25 @@ window.addEventListener('beforeinstallprompt', function (e) {
     }).join('');
   }
 
-  // ---------- instalar o app do aluno ----------
-  var btn = document.getElementById('btnInstalar');
-  var linkInst = document.getElementById('btnInstrucao');
-  var PORTAL = 'https://studio-fischer.vercel.app/portal/login?k=sf-297d293f9896e786';
-
-  function jaInstalado() {
-    return (
-      window.matchMedia('(display-mode: standalone)').matches ||
-      window.navigator.standalone === true
-    );
-  }
-
-  function soInstrucoes() {
-    if (linkInst) linkInst.hidden = false;
-    if (btn) btn.textContent = 'Ver como instalar';
-  }
+  // ---------- app do aluno: APK direto no Android, PWA no iPhone ----------
+  var btn = document.getElementById('btnApk');
+  var ehIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
 
   if (btn) {
-    var ehIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-
-    if (jaInstalado()) {
-      // já está na tela inicial: só abre o app
-      btn.textContent = 'Abrir a área do aluno';
-      btn.addEventListener('click', function () { window.location.href = PORTAL; });
-    } else if (deferredInstall) {
-      // Android/Chrome: diálogo oficial do navegador
-      if (linkInst) linkInst.hidden = false;
+    if (ehIOS) {
+      // iPhone não instala .apk: leva para as instruções do Safari
+      btn.textContent = 'Tenho iPhone — ver como instalar';
+      btn.setAttribute('href', '#como-instalar-ios');
+      btn.removeAttribute('download');
       btn.addEventListener('click', function () {
-        if (!deferredInstall) { soInstrucoes(); return; }
-        deferredInstall.prompt();
-        deferredInstall.userChoice.then(function () { deferredInstall = null; });
+        var alvo = document.getElementById('como-instalar-ios');
+        if (alvo) alvo.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
     } else {
-      // iOS e navegadores sem prompt: só a instrução manual
-      soInstrucoes();
+      // Android e computador: baixa o arquivo direto
       btn.addEventListener('click', function () {
-        var alvo = document.getElementById('como-instalar');
-        if (alvo) alvo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (!ehIOS) btn.setAttribute('download', 'studio-fischer-app.apk');
       });
     }
   }
-
-  window.addEventListener('appinstalled', function () {
-    if (btn) btn.textContent = 'Abrir a área do aluno';
-  });
 })();
